@@ -6,20 +6,29 @@
 #include "UObject/Interface.h"
 #include "Bomba.generated.h"
 
-// This class does not need to be modified.
-UINTERFACE(MinimalAPI)
+UINTERFACE(MinimalAPI, Blueprintable)
 class UBomba : public UInterface
 {
-	GENERATED_BODY()
+    GENERATED_BODY()
 };
 
 /**
- * 
+ * Interfaz que define las operaciones comunes para bombas simples y compuestas
  */
 class BOMBERMAN_012025_API IBomba
 {
-	GENERATED_BODY()
+    GENERATED_BODY()
 
-	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
+    // Método virtual puro que debe ser implementado por todas las bombas
+    virtual void Explotar() = 0;
+
+    // Método virtual para agregar bombas hijas (solo usado por BombaEspecial)
+    virtual void AgregarBomba(class ABombaBase* Bomba) {}
+
+    // Método virtual para remover bombas hijas (solo usado por BombaEspecial)
+    virtual void RemoverBomba(class ABombaBase* Bomba) {}
+
+    // Método virtual para obtener bombas hijas (solo usado por BombaEspecial)
+    virtual TArray<class ABombaBase*> ObtenerBombas() { return TArray<class ABombaBase*>(); }
 };

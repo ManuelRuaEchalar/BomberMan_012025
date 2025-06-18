@@ -1,27 +1,57 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "BombaBase.h"
+#include "UObject/ConstructorHelpers.h"
+#include "Engine/Engine.h"
 
-// Sets default values
 ABombaBase::ABombaBase()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+    PrimaryActorTick.bCanEverTick = false;
+    FactorEscala = 1.0f;
 
+    // Crear el componente de malla estática
+    MeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComponent"));
+    RootComponent = MeshComponent;
+
+    // Cargar la malla de la esfera
+    static ConstructorHelpers::FObjectFinder<UStaticMesh> SphereMeshAsset(TEXT("/Script/Engine.StaticMesh'/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere'"));
+    if (SphereMeshAsset.Succeeded())
+    {
+        MeshComponent->SetStaticMesh(SphereMeshAsset.Object);
+    }
+
+    // Crear el componente de sistema de partículas
+    ExplosionParticleComponent = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("ExplosionParticleComponent"));
+    ExplosionParticleComponent->SetupAttachment(RootComponent);
+
+    // Cargar el sistema de partículas de explosión
+    static ConstructorHelpers::FObjectFinder<UParticleSystem> ExplosionParticleAsset(TEXT("/Script/Engine.ParticleSystem'/Game/StarterContent/Particles/P_Explosion.P_Explosion'"));
+    if (ExplosionParticleAsset.Succeeded())
+    {
+        ExplosionParticleComponent->SetTemplate(ExplosionParticleAsset.Object);
+        ExplosionParticleComponent->bAutoActivate = false; // No activar automáticamente
+    }
 }
 
-// Called when the game starts or when spawned
 void ABombaBase::BeginPlay()
 {
-	Super::BeginPlay();
-	
+    Super::BeginPlay();
+
+    // Aplicar el factor de escala
+    SetActorScale3D(FVector(FactorEscala));
+
+    // Configurar el material específico de cada tipo de bomba
+    ConfigurarMaterial();
 }
 
-// Called every frame
-void ABombaBase::Tick(float DeltaTime)
+void ABombaBase::SetFactorEscala(float NuevoFactor)
 {
-	Super::Tick(DeltaTime);
-
+    FactorEscala = NuevoFactor;
+    SetActorScale3D(FVector(FactorEscala));
 }
 
+void ABombaBase::ReproducirExplosion()
+{
+    if (ExplosionParticleComponent)
+    {
+        ExplosionParticleComponent->Activate();
+    }
+}

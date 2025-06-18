@@ -89,6 +89,30 @@
     <ClCompile Include="..\..\Source\BomberMan_012025\BloqueMadera.h">
       <Filter>Source\BomberMan_012025</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_012025\Bomba.cpp">
+      <Filter>Source\BomberMan_012025</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_012025\Bomba.h">
+      <Filter>Source\BomberMan_012025</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_012025\BombaBase.cpp">
+      <Filter>Source\BomberMan_012025</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_012025\BombaBase.h">
+      <Filter>Source\BomberMan_012025</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_012025\BombaEspecial.cpp">
+      <Filter>Source\BomberMan_012025</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_012025\BombaEspecial.h">
+      <Filter>Source\BomberMan_012025</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_012025\BombaNormal.cpp">
+      <Filter>Source\BomberMan_012025</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_012025\BombaNormal.h">
+      <Filter>Source\BomberMan_012025</Filter>
+    </ClCompile>
     <None Include="..\..\Source\BomberMan_012025\BomberMan_012025.Build.cs">
       <Filter>Source\BomberMan_012025</Filter>
     </None>
@@ -168,6 +192,18 @@
       <Filter>Source\BomberMan_012025</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_012025\GameStateBase_BomberMan.h">
+      <Filter>Source\BomberMan_012025</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_012025\GoombaEnemigo.cpp">
+      <Filter>Source\BomberMan_012025</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_012025\GoombaEnemigo.h">
+      <Filter>Source\BomberMan_012025</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_012025\GoombaPrototype.cpp">
+      <Filter>Source\BomberMan_012025</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_012025\GoombaPrototype.h">
       <Filter>Source\BomberMan_012025</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_012025\InventoryActor.cpp">

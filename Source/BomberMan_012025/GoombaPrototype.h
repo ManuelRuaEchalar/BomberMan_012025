@@ -22,4 +22,6 @@ class BOMBERMAN_012025_API IGoombaPrototype
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
+	// Método virtual puro para clonar un Goomba
+	virtual AActor* Clone(FVector SpawnLocation) = 0;
 };
